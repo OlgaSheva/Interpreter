@@ -1,11 +1,7 @@
 # Interpreter
 
-## Task
+## [Task] (https://www.codewars.com/kata/simple-interactive-interpreter/csharp)
 You will create an interpreter which takes inputs described below and produces outputs, storing state in between each input.
-
-If you're not sure where to start with this kata, check out my Simpler Interactive Interpreter kata, which greatly simplifies the interpreter by removing functions.
-
-Note that the eval command has been disabled.
 
 ## Concepts
 The interpreter will take inputs in the language described under the language header below. This section will give an overview of the language constructs.
@@ -126,7 +122,7 @@ Left String
 ## Language
 
 ### Grammar
-This section specifies the grammar for the interpreter language in EBNF syntax
+This section specifies the grammar for the interpreter language in [EBNF](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form) syntax
 
 ```
 function        ::= fn-keyword fn-name { identifier } fn-operator expression
