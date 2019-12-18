@@ -17,32 +17,40 @@ Variables are implicitly declared the first time they are assigned to.
 
 Example: Initializing a variable to a constant value and using the variable in another expression (Each line starting with a '>' indicates a separate call to the input method of the interpreter, other lines represent output)
 
-`>x = 7
+```
+>x = 7
     7
 >x + 6
-    13`
+    13
+```
 
 Referencing a non-existent variable will cause the interpreter to throw an error. The interpreter should be able to continue accepting input even after throwing.
 
 **Example:** Referencing a non-existent variable
 
+```
 >y + 7
     ERROR: Invalid identifier. No variable with name 'y' was found."
+```
 
 ### Assignments
 An assignment is an expression that has an identifier on left side of an `=` operator, and any expression on the right. Such expressions should store the value of the right hand side in the specified variable and return the result.
 
 **Example:** Assigning a constant to a variable
 
+```
 x = 7
     7
+```
 
 You should also be able to chain and nest assignments. Note that the assignment operator is one of the few that is right associative.
 
 **Example:** Chained assignments. The statement below should set both `x` and `y` to `7`.
 
-`x = 13 + (y = 3)
-    16`
+```
+x = 13 + (y = 3)
+    16
+```
 
 ### Operator Precedence
 Operator precedence will follow the common order. There is a table in the *Language* section below that explicitly states the operators and their relative precedence.
@@ -52,7 +60,8 @@ Functions are declared by the `fn` keyword followed by a name, an optional argum
 
 **Example:** declare a function to calculate the average of two variables and call it. (Each line starting with a '>' indicates a separate call to the input method of the interpreter, other lines represent output)
 
-`>fn avg => (x + y) / 2
+```
+>fn avg => (x + y) / 2
     ERROR: Unknown identifier 'x'
 >fn avg x y => (x + y) / 2
 >a = 2
@@ -60,19 +69,24 @@ Functions are declared by the `fn` keyword followed by a name, an optional argum
 >b = 4
     4
 >avg a b
-    3`
+    3
+```
 
 **Example:** declare a function with an invalid variable name in the function body
 
-`>fn add x y => x + z
-    ERROR: Invalid identifier 'z' in function body.`
+```
+>fn add x y => x + z
+    ERROR: Invalid identifier 'z' in function body.
+```
 
 **Example:** chain method calls (hint: function calls are right associative!)
 
-`>fn echo x => x
+```
+>fn echo x => x
 >fn add x y => x + y
 >add echo 4 echo 3
-    7`
+    7
+```
 
 ### Name conflicts
 Because variable and function names share the same grammar, conflicts are possible. Precedence will be given to the first object declared. That is, if a variable is declared, then subsequent declaration of a function with the same name should result in an error. Likewise, declaration of a function followed by the initialization of a variable with the same name should result in an error.
@@ -81,14 +95,16 @@ Declaration of function with the same name as an existing function should overwr
 
 **Example:** Overwriting a function
 
-`>fn inc x => x + 1
+```
+>fn inc x => x + 1
 >a = 0
     0
 >a = inc a
     1
 >fn inc x => x + 2
 >a = inc a
-    3`
+    3
+```
 
 ### Input
 Input will conform to either the function production or the expression production in the grammar below.
@@ -99,18 +115,21 @@ Input will conform to either the function production or the expression productio
 * Output for input consisting entirely of whitespace will be an empty string (null in Java).
 * All other cases will throw an error.
 
-`-- In Haskell that is:
+```
+-- In Haskell that is:
 Right (Nothing, Interpreter)
 Right (Just Double, Interpreter) 
 Right (Nothing, Interpreter)
-Left String`
+Left String
+```
 
 ## Language
 
 ### Grammar
 This section specifies the grammar for the interpreter language in EBNF syntax
 
-`function        ::= fn-keyword fn-name { identifier } fn-operator expression
+```
+function        ::= fn-keyword fn-name { identifier } fn-operator expression
 fn-name         ::= identifier
 fn-operator     ::= '=>'
 fn-keyword      ::= 'fn'
@@ -128,7 +147,8 @@ identifier-char ::= '_' | letter | digit
 number          ::= { digit } [ '.' digit { digit } ]
 
 letter          ::= 'a' | 'b' | ... | 'y' | 'z' | 'A' | 'B' | ... | 'Y' | 'Z'
-digit           ::= '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'`
+digit           ::= '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+```
 
 ### Operator Precedence
 The following table lists the language's operators grouped in order of precedence. Operators within each group have equal precedence.
