@@ -1,6 +1,6 @@
 # Interpreter
 
-Taken from the site [codewars] (https://www.codewars.com/kata/simple-interactive-interpreter/csharp). Thanks [author] (https://www.codewars.com/users/Wintermute) of the task `wintermute` for his cool job.
+Taken from the site [codewars](https://www.codewars.com/kata/simple-interactive-interpreter/csharp). Thanks [author](https://www.codewars.com/users/Wintermute) of the task `wintermute` for his cool job.
 
 ## Task
 You will create an interpreter which takes inputs described below and produces outputs, storing state in between each input.
