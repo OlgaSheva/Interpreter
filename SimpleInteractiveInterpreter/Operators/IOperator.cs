@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SimpleInteractiveInterpreter.Operators
+﻿namespace SimpleInteractiveInterpreter.Operators
 {
     public interface IOperator
     {
+        #region Methods
         int Execute(int a, int b);
+        string GetOperatorString();
+        #endregion
     }
 }

@@ -13,11 +13,13 @@ namespace SimpleInteractiveInterpreter
 
         public void Run()
         {
+            var lexer = new Lexer("");
             while (true)
             {
                 Console.Write(">");
                 var data = Console.ReadLine();
                 var result = Parser.Parse(data);
+                var r = lexer.Parse(data);
                 var res = Execute(result);
                 Console.WriteLine("\t" + res);
             }

@@ -2,6 +2,13 @@
 {
     public abstract class Operator : IOperator
     {
+        private string OperatorString { get; set; }
+
+        public Operator(string operatorString)
+        {
+            OperatorString = operatorString;
+        }
+
         public static IOperator Get(char operatorChar)
         {
             return operatorChar switch
@@ -15,5 +22,9 @@
             };
         }
         public abstract int Execute(int a, int b);
+        public string GetOperatorString()
+        {
+            return OperatorString;
+        }
     }
 }
